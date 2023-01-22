@@ -1,6 +1,6 @@
-# gas-deno-esbuild-starter
+# gas-gpt-starter
 
-`gas-deno-esbuild-starter` is a starter kit for Google Apps Script by Deno.
+`gas-gpt-starter` is a starter kit to use GPT-3 in Google Apps Script.
 
 ## Status
 
@@ -71,6 +71,16 @@ Open the current directory's clasp project on script.google.com.
 ```shell
 deno task open
 ```
+
+### GPT3
+
+- text-davinci-003
+- text-curie-001
+- text-babbage-001
+- text-ada-001
+
+
+https://beta.openai.com/docs/models/gpt-3
 
 ## License
 MIT
