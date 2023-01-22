@@ -1,11 +1,11 @@
 import { GptApiInfo, GptRequestOptions } from "../types/openai.ts";
 
 /**
- * GPT-3 and Google Sheets
+ * Create Text Completion with OpenAI GPT-3
  *
- * @param {string} prompt Prompt
- * @param {number} temperature Temperature
- * @param {string} model GPT-3 Model
+ * @param {GptRequestOptions["prompt"]} prompt Prompt
+ * @param {number} maxTokens Max Tokens
+ * @param {GptRequestOptions} gptOptions GPT-3 request body
  * @return Response text returned by GPT-3
  */
 
