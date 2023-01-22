@@ -1,0 +1,40 @@
+{
+  "title": "gas-deno-esbuild-starter",
+  "description": "gas-deno-esbuild-starter is a starter kit for Google Apps Script by Deno.",
+  "tasks": {
+    "login": "deno run -A npm:@google/clasp@2.4.2 login",
+    "open": "deno run -A npm:@google/clasp@2.4.2 open",
+    "push": "deno run --allow-env --allow-net --allow-read --allow-sys --allow-write npm:@google/clasp@2.4.2 push -f",
+    "clean": "deno run --allow-write _tasks/clean.ts",
+    "build": "deno run --allow-env --allow-net --allow-read --allow-run --allow-write _tasks/build.ts",
+    "deploy": "deno task build && deno task push"
+  },
+  "lint": {
+    "files": {
+      "include": [
+        "src",
+        "_tasks"
+      ]
+    }
+  },
+  "fmt": {
+    "files": {
+      "include": [
+        "src",
+        "_tasks"
+      ]
+    }
+  },
+  "test": {
+    "files": {
+      "include": ["src/"],
+      "exclude": ["src/testdata/"]
+    }
+  },
+  "compilerOptions": {
+    "types": [
+      // https://github.com/proudust/deno-gas-types
+      "https://raw.githubusercontent.com/proudust/deno-gas-types/main/types/index.d.ts"
+    ]
+  }
+}
