@@ -69,22 +69,22 @@ deno task deploy
 ### GPT-3 function
 
 1. Authorize this project's script by execution
-2. Use `gpt3()` in your Google Workspace
+2. Use `GPT3()` in your Google Workspace
 
 ```
-gpt3(prompt, maxTokens, gptOptions)
+GPT3(prompt, maxTokens, gptOptions)
 
 // Example 1 on Google Sheets
-=gpt3("Hello, world!")
+=GPT3("Hello, world!")
 
 // Example 2 on Google Sheets
-=gpt3(A1, 200)
+=GPT3(A1, 200)
 
 // Example 3 on Google Sheets
-=gpt3(A1, 300, {model: "text-babbage-001"})
+=GPT3(A1, 300, {model: "text-babbage-001"})
 ```
 
-![gpt3 function on Google Sheets](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pjchli9ymbtr1unqlkzp.png)
+![GPT3 function on Google Sheets](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vjh3uvjlironx80jrykx.png)
 
 ### Parameters
 1. prompt: The prompt to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays.

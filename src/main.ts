@@ -8,7 +8,7 @@ declare const global: {
   [x: string]: GptFunction;
 };
 
-function gpt3(
+function GPT3(
   prompt: GptRequestOptions["prompt"],
   maxTokens?: number,
   gptOptions?: GptRequestOptions,
@@ -17,4 +17,4 @@ function gpt3(
   return response;
 }
 
-global.gpt3 = gpt3;
+global.GPT3 = GPT3;
