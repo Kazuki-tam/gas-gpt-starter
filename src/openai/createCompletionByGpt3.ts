@@ -9,8 +9,6 @@ import { GptApiInfo, GptRequestOptions } from "../types/openai.ts";
  * @return Response text returned by GPT-3
  */
 
-declare const OPENAI_API_KEY: string;
-
 export const createCompletionByGpt3 = (
   prompt: GptRequestOptions["prompt"],
   maxTokens = 100,
@@ -19,6 +17,12 @@ export const createCompletionByGpt3 = (
   if (!prompt) {
     throw new Error("You have to input the prompt at the least.");
   }
+
+  const OPENAI_API_KEY: string | null = PropertiesService.getScriptProperties().getProperty("OPENAI_API_KEY");
+  if (!OPENAI_API_KEY) {
+    throw new Error("You have to set your OpenAI API Key.");
+  }
+
   const modelsArray = [
     "text-davinci-003",
     "text-curie-001",

@@ -51,12 +51,15 @@ Open the app script from your spreadsheet and check out your script id on the se
 }
 ```
 
-### Create a .env file
-Create a `.env` at the root, and then add your API key.
+### Set OpenAI API key into script properties
+1. Create a new secret key from [OpenAI API keys](https://beta.openai.com/account/api-keys).
+2. Set the API key into script properties in your Apps Script project.
 
-```
-OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>
-```
+Note: The key name is must be `OPENAI_API_KEY`.
+
+![Script Properties](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/del73wuy6tlz9k3h8l3s.png)
+
+[📖 Learn more properties service](https://developers.google.com/apps-script/guides/properties#manage_script_properties_manually)
 
 ### Upload a script project
 
