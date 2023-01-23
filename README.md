@@ -11,17 +11,19 @@
 
 ## Features
 - Just deploy this project code without development
-- Develop Locally with TypeScript, Clasp and Deno
+- Develop locally with TypeScript, Clasp and Deno
 - Bundle your files with esbuild
 
 ## Main dependencies
 
+- [Google Apps Script](https://workspace.google.co.jp/intl/en/products/apps-script/)
 - [OpenAI API](https://beta.openai.com/docs/api-reference/introduction)
 - [Clasp](https://github.com/google/clasp)
 - [esbuild](https://esbuild.github.io/)
 
 ## Prerequisites
 
+- [Google Workspace](https://workspace.google.co.jp/)
 - [OpenAI account](https://openai.com/api/)
 - [Deno v1.29.4 or higher](https://deno.land/)
 
@@ -122,7 +124,7 @@ deno task open
 ```
 
 ## GPT-3
-You can use main models with different levels of power suitable for different tasks.
+You can use four main models with different levels of power suitable for different tasks.
 
 - text-davinci-003
 - text-curie-001
