@@ -11,11 +11,21 @@ type GptRequestOptions = {
   max_tokens: number;
   temperature: number;
   top_p: number;
+  n: number;
+  stream: boolean;
+  logprobs: number | null;
+  echo: boolean;
+  stop: string | string[] | null;
+  presence_penalty: number;
+  frequency_penalty: number;
+  best_of: number;
+  logit_bias: Map<string, number> | null;
+  user?: string;
 };
 
 type GptFunction = (
   prompt: GptRequestOptions["model"],
-  maxTokens?: number,
+  maxTokens?: GptRequestOptions["max_tokens"],
   gptRequestOptions?: GptRequestOptions,
 ) => string;
 

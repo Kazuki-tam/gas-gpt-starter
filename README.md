@@ -4,25 +4,28 @@
 
 ## Status
 
-[![Release (latest by date)](https://img.shields.io/github/v/release/Kazuki-tam/gas-deno-esbuild-starter)](https://github.com/Kazuki-tam/gas-deno-esbuild-starter/releases/tag/v0.0.1)
-[![Issues](https://img.shields.io/github/issues/Kazuki-tam/gas-deno-esbuild-starter)](https://github.com/Kazuki-tam/gas-deno-esbuild-starter/issues)
+[![Release (latest by date)](https://img.shields.io/github/v/release/Kazuki-tam/gas-gpt-starter)](https://github.com/Kazuki-tam/gas-gpt-starter/releases/tag/v0.0.1)
+[![Issues](https://img.shields.io/github/issues/Kazuki-tam/gas-gpt-starter)](https://github.com/Kazuki-tam/gas-gpt-starter/issues)
 ![Maintenance](https://img.shields.io/maintenance/yes/2023)
-![Release date](https://img.shields.io/github/release-date/Kazuki-tam/gas-deno-esbuild-starter)
+![Release date](https://img.shields.io/github/release-date/Kazuki-tam/gas-gpt-starter)
 
 ## Features
+- Just deploy this project code without development
 - Develop Locally with TypeScript, Clasp and Deno
 - Bundle your files with esbuild
 
 ## Main dependencies
 
+- [OpenAI](https://beta.openai.com/docs/api-reference/introduction)
 - [Clasp](https://github.com/google/clasp)
 - [esbuild](https://esbuild.github.io/)
 
 ## Prerequisites
 
+- [OpenAI account](https://openai.com/api/)
 - [Deno v1.29.4 or higher](https://deno.land/)
 
-[How to install Deno](https://deno.land/manual@v1.29.4/getting_started/installation)
+[🦕 How to install Deno](https://deno.land/manual@v1.29.4/getting_started/installation)
 
 ## How to use
 
@@ -46,11 +49,57 @@ Open the app script from your spreadsheet and check out your script id on the se
 }
 ```
 
+### Create a .env file
+Create a `.env` at the root, and then add your API key.
+
+```
+OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>
+```
+
+### Upload a script project
+
 Deploy your code to the existing project.
 
 ```shell
 deno task deploy
 ```
+
+### GPT-3 function
+
+1. Authorize this project's script by execution
+2. Use `gpt3()` in your Google Workspace
+
+```
+gpt3(prompt, maxTokens, gptOptions)
+
+// Example 1 on Google Sheets
+=gpt3("Hello, world!")
+
+// Example 2 on Google Sheets
+=gpt3(A1, 200)
+
+// Example 3 on Google Sheets
+=gpt3(A1, 300, {model: "text-babbage-001"})
+```
+
+![gpt3 function on Google Sheets](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pjchli9ymbtr1unqlkzp.png)
+
+### Parameters
+1. prompt: The prompt to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays.
+2. maxTokens: The maximum number of tokens to generate in the completion.
+3. gptOptions: The other options to adjust the completion
+
+```
+// Example of gptOptions
+{
+  // Defaults to text-davinci-003
+  model: "text-curie-001",
+  // Defaults to 0.3
+  temperature: 0.5,
+}
+```
+
+[📖 Learn more parameters](https://beta.openai.com/docs/api-reference/completions/create)
 
 ## Available Commands
 
@@ -72,15 +121,15 @@ Open the current directory's clasp project on script.google.com.
 deno task open
 ```
 
-### GPT3
+## GPT-3
+You can use main models with different levels of power suitable for different tasks.
 
 - text-davinci-003
 - text-curie-001
 - text-babbage-001
 - text-ada-001
 
-
-https://beta.openai.com/docs/models/gpt-3
+[📖 Learn more GPT3](https://beta.openai.com/docs/models/gpt-3)
 
 ## License
 MIT
