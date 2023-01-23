@@ -1,6 +1,11 @@
 # gas-gpt-starter
 
 `gas-gpt-starter` is a starter kit to use GPT-3 in Google Apps Script.
+You can clone [this sample sheet](https://docs.google.com/spreadsheets/d/1xYZbBp4TFuSxOfjsW0HJtDCS3UEI5nWYd2FfPxEoLnQ/edit?usp=sharing) if you want to use GPT-3 function immediately without deployment.
+
+Note: You need to set the OpenAI API key into script properties even though you cloned the sample sheet.
+
+[👉 Check out how to add script properties.](https://developers.google.com/apps-script/guides/properties#manage_script_properties_manually)
 
 ## Status
 
@@ -59,7 +64,7 @@ Note: The key name is must be `OPENAI_API_KEY`.
 
 ![Script Properties](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/del73wuy6tlz9k3h8l3s.png)
 
-[📖 Learn more properties service](https://developers.google.com/apps-script/guides/properties#manage_script_properties_manually)
+[📖 How to add script properties](https://developers.google.com/apps-script/guides/properties#manage_script_properties_manually)
 
 ### Upload a script project
 
@@ -92,7 +97,7 @@ GPT3(prompt, maxTokens, gptOptions)
 ### Parameters
 1. prompt: The prompt to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays.
 2. maxTokens: The maximum number of tokens to generate in the completion.
-3. gptOptions: The other options to adjust the completion
+3. gptOptions: The other options to adjust the completion.
 
 ```
 // Example of gptOptions
