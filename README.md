@@ -16,7 +16,7 @@
 
 ## Main dependencies
 
-- [OpenAI](https://beta.openai.com/docs/api-reference/introduction)
+- [OpenAI API](https://beta.openai.com/docs/api-reference/introduction)
 - [Clasp](https://github.com/google/clasp)
 - [esbuild](https://esbuild.github.io/)
 
