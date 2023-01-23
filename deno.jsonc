@@ -1,6 +1,6 @@
 {
-  "title": "gas-deno-esbuild-starter",
-  "description": "gas-deno-esbuild-starter is a starter kit for Google Apps Script by Deno.",
+  "title": "gas-gpt-starter",
+  "description": "gas-gpt-starter is a starter kit to use GPT-3 in Google Apps Script.",
   "tasks": {
     "login": "deno run -A npm:@google/clasp@2.4.2 login",
     "open": "deno run -A npm:@google/clasp@2.4.2 open",
