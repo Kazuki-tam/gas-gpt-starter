@@ -26,7 +26,8 @@ type GptRequestOptions = {
 type GptFunction = (
   prompt: GptRequestOptions["model"],
   maxTokens?: GptRequestOptions["max_tokens"],
-  gptRequestOptions?: GptRequestOptions,
+  model?: GptModel,
+  temperature?: GptRequestOptions["temperature"],
 ) => string;
 
 type GptApiInfo = {

@@ -11,9 +11,15 @@ declare const global: {
 function GPT3(
   prompt: GptRequestOptions["prompt"],
   maxTokens?: number,
-  gptOptions?: GptRequestOptions,
+  model?: GptRequestOptions["model"],
+  temperature?: number,
 ): string {
-  const response = createCompletionByGpt3(prompt, maxTokens, gptOptions);
+  const response = createCompletionByGpt3(
+    prompt,
+    maxTokens,
+    model,
+    temperature,
+  );
   return response;
 }
 

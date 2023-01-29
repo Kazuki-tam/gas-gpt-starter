@@ -1,48 +1,56 @@
 import { GptApiInfo, GptRequestOptions } from "../types/openai.ts";
+import {
+  GptMaxTokensSchema,
+  GptModelSchema,
+  GptTemperatureSchema,
+} from "../schemas/openaiSchema.ts";
 
 /**
  * Create Text Completion with OpenAI GPT-3
  *
  * @param {GptRequestOptions["prompt"]} prompt Prompt
  * @param {number} maxTokens Max Tokens
- * @param {GptRequestOptions} gptOptions GPT-3 request body
+ * @param {string} model Model
+ * @param {number} temperature Temperature
  * @return Response text returned by GPT-3
  */
 
 export const createCompletionByGpt3 = (
   prompt: GptRequestOptions["prompt"],
   maxTokens = 100,
-  gptOptions?: GptRequestOptions,
+  model = "text-davinci-003",
+  temperature = 0.3,
 ) => {
   if (!prompt) {
     throw new Error("You have to input the prompt at the least.");
   }
 
-  const OPENAI_API_KEY: string | null = PropertiesService.getScriptProperties().getProperty("OPENAI_API_KEY");
+  const OPENAI_API_KEY: string | null = PropertiesService.getScriptProperties()
+    .getProperty("OPENAI_API_KEY");
   if (!OPENAI_API_KEY) {
     throw new Error("You have to set your OpenAI API Key.");
   }
 
-  const modelsArray = [
-    "text-davinci-003",
-    "text-curie-001",
-    "text-babbage-001",
-    "text-ada-001",
-  ];
-  if (gptOptions?.model && !modelsArray.includes(gptOptions.model)) {
-    throw new Error(
-      "You have to select a model from text-davinci-003, text-curie-001, text-babbage-001, text-ada-001.",
-    );
+  if (maxTokens) {
+    GptMaxTokensSchema.parse(maxTokens);
+  }
+
+  if (model) {
+    GptModelSchema.parse(model);
+  }
+
+  if (temperature) {
+    GptTemperatureSchema.parse(temperature);
   }
 
   const url = "https://api.openai.com/v1/completions";
   const payload = {
-    model: gptOptions?.model || "text-davinci-003",
+    model: model,
     prompt: prompt,
-    suffix: gptOptions?.suffix || null,
-    temperature: gptOptions?.temperature || 0.3,
+    suffix: null,
+    temperature: temperature,
     max_tokens: maxTokens,
-    top_p: gptOptions?.top_p || 1,
+    top_p: 1,
   };
 
   const fetchOptions = {
@@ -60,6 +68,6 @@ export const createCompletionByGpt3 = (
     return parsedRes.choices[0].text.trim();
   } catch (error) {
     console.error(error);
-    throw new Error("An error occurred while fetching data from OpenAI API.");
+    throw new Error(`Error: ${error}`);
   }
 };

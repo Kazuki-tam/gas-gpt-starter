@@ -80,7 +80,7 @@ deno task deploy
 2. Use `GPT3()` in your Google Workspace
 
 ```
-GPT3(prompt, maxTokens, gptOptions)
+GPT3(prompt, maxTokens, model, temperature)
 
 // Example 1 on Google Sheets
 =GPT3("Hello, world!")
@@ -89,7 +89,7 @@ GPT3(prompt, maxTokens, gptOptions)
 =GPT3(A1, 200)
 
 // Example 3 on Google Sheets
-=GPT3(A1, 300, {model: "text-babbage-001"})
+=GPT3(A1, 300, "text-babbage-001", 0.5)
 ```
 
 ![GPT3 function on Google Sheets](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vjh3uvjlironx80jrykx.png)
@@ -97,17 +97,8 @@ GPT3(prompt, maxTokens, gptOptions)
 ### Parameters
 1. prompt: The prompt to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays.
 2. maxTokens: The maximum number of tokens to generate in the completion.
-3. gptOptions: The other options to adjust the completion.
-
-```
-// Example of gptOptions
-{
-  // Defaults to text-davinci-003
-  model: "text-curie-001",
-  // Defaults to 0.3
-  temperature: 0.5,
-}
-```
+3. model: ID of the model to use.
+4. temperature: What sampling temperature to use. Higher values means the model will take more risks.
 
 [📖 Learn more parameters](https://beta.openai.com/docs/api-reference/completions/create)
 
