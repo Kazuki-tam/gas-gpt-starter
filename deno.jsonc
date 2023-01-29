@@ -33,8 +33,8 @@
   },
   "compilerOptions": {
     "types": [
-      // https://github.com/proudust/deno-gas-types
-      "https://raw.githubusercontent.com/proudust/deno-gas-types/main/types/index.d.ts"
+      // https://github.com/Kazuki-tam/deno-gas-types
+      "https://raw.githubusercontent.com/Kazuki-tam/deno-gas-types/main/types/index.d.ts"
     ]
   }
 }
