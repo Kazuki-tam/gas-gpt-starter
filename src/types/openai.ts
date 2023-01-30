@@ -1,8 +1,7 @@
-type GptModel =
-  | "text-davinci-003"
-  | "text-curie-001"
-  | "text-babbage-001"
-  | "text-ada-001";
+import { z } from "https://deno.land/x/zod@v3.20.2/mod.ts";
+import { GptFunctionSchema, GptModelSchema } from "../schemas/openaiSchema.ts";
+
+type GptModel = z.infer<typeof GptModelSchema>;
 
 type GptRequestOptions = {
   model: GptModel;
@@ -23,12 +22,7 @@ type GptRequestOptions = {
   user?: string;
 };
 
-type GptFunction = (
-  prompt: GptRequestOptions["model"],
-  maxTokens?: GptRequestOptions["max_tokens"],
-  model?: GptModel,
-  temperature?: GptRequestOptions["temperature"],
-) => string;
+type GptFunction = z.infer<typeof GptFunctionSchema>;
 
 type GptApiInfo = {
   id: string;
