@@ -90,6 +90,10 @@ CHATGPT(prompt, system)
 =CHATGPT(A1, "You are a helpful assistant.")
 ```
 
+#### CHATGPT Parameters
+1. prompt: The prompt to generate completions.
+2. system: The system message to format response.
+
 ### GPT-3 function
 
 1. Authorize this project's script by execution
@@ -110,7 +114,7 @@ GPT3(prompt, maxTokens, model, temperature)
 
 ![GPT3 function on Google Sheets](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vjh3uvjlironx80jrykx.png)
 
-### Parameters
+#### GPT-3 Parameters
 1. prompt: The prompt to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays.
 2. maxTokens: The maximum number of tokens to generate in the completion.
 3. model: ID of the model to use.
