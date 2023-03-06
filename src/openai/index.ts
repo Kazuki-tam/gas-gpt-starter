@@ -1,4 +1,4 @@
-import { createCompletionByGpt3 } from "./createCompletionByGpt3.ts";
-import { httpRequestWithRetries } from "./httpRequestWithRetries.ts";
+import { createCompletionByGpt3 } from "./gpt/createCompletionByGpt3.ts";
+import { createCompletionByChatGpt } from "./chatgpt/createCompletionByChatGpt.ts";
 
-export { createCompletionByGpt3, httpRequestWithRetries };
+export { createCompletionByChatGpt, createCompletionByGpt3 };

@@ -1,5 +1,5 @@
 import { createCompletionByGpt3 } from "./openai/index.ts";
-import { GptFunction, GptRequestOptions } from "./types/openai.ts";
+import type { GptFunction, GptRequestOptions } from "./types/openai.ts";
 
 /**
  * main function

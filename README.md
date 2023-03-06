@@ -1,7 +1,7 @@
 # gas-gpt-starter
 
-`gas-gpt-starter` is a starter kit to use GPT-3 in Google Apps Script.
-You can clone [this sample sheet](https://docs.google.com/spreadsheets/d/1xYZbBp4TFuSxOfjsW0HJtDCS3UEI5nWYd2FfPxEoLnQ/edit?usp=sharing) if you want to use GPT-3 function immediately without deployment.
+`gas-gpt-starter` is a starter kit to use GPT-3 and ChatGPT in Google Apps Script.
+You can clone [this sample sheet](https://docs.google.com/spreadsheets/d/1xYZbBp4TFuSxOfjsW0HJtDCS3UEI5nWYd2FfPxEoLnQ/edit?usp=sharing) if you want to use GPT-3 and ChatGPT function immediately without deployment.
 
 Note: You need to set the OpenAI API key into script properties even though you cloned the sample sheet.
 
@@ -74,6 +74,22 @@ Deploy your code to the existing project.
 deno task deploy
 ```
 
+### CHATGPT function
+1. Authorize this project's script by execution
+2. Use `=CHATGPT()` in your Google Workspace
+
+You can add a system message with the second argument.
+
+```
+CHATGPT(prompt, system)
+
+// Example 1 on Google Sheets
+=CHATGPT("Hello, world!")
+
+// Example 2 on Google Sheets
+=CHATGPT(A1, "You are a helpful assistant.")
+```
+
 ### GPT-3 function
 
 1. Authorize this project's script by execution
@@ -122,6 +138,9 @@ Open the current directory's clasp project on script.google.com.
 deno task open
 ```
 
+## ChatGPT
+`gpt-3.5-turbo` is supported in this project.
+
 ## GPT-3
 You can use four main models with different levels of power suitable for different tasks.
 
@@ -130,7 +149,7 @@ You can use four main models with different levels of power suitable for differe
 - text-babbage-001
 - text-ada-001
 
-[📖 Learn more GPT3](https://beta.openai.com/docs/models/gpt-3)
+[📖 Learn more API reference](https://platform.openai.com/docs/api-reference/introduction)
 
 ## License
 MIT
