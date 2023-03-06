@@ -1,4 +1,4 @@
-import { sleepForBackoff } from "../utils/sleepForBackoff.ts";
+import { sleepForBackoff } from "../../utils/sleepForBackoff.ts";
 
 /**
  * Execute HTTP requests and retry failed requests.
@@ -10,7 +10,7 @@ import { sleepForBackoff } from "../utils/sleepForBackoff.ts";
  * @return Response returned by GPT-3
  */
 
-const httpRequestWithRetries = (
+const httpRequestWithRetriesForGpt3 = (
   OPENAI_API_KEY: string,
   prompt: string | string[],
   model: string,
@@ -52,4 +52,4 @@ const httpRequestWithRetries = (
   }
   return response;
 };
-export { httpRequestWithRetries };
+export { httpRequestWithRetriesForGpt3 };

@@ -1,11 +1,11 @@
-import type { GptApiInfo, GptRequestOptions } from "../types/openai.ts";
+import type { GptApiInfo, GptRequestOptions } from "../../types/openai.ts";
 import {
   GptMaxTokensSchema,
   GptModelSchema,
   GptTemperatureSchema,
-} from "../schemas/openaiSchema.ts";
-import { httpRequestWithRetries } from "./httpRequestWithRetries.ts";
-import { getPropertiesService } from "../utils/getPropertiesService.ts";
+} from "../../schemas/openaiSchema.ts";
+import { httpRequestWithRetriesForGpt3 } from "./httpRequestWithRetriesForGpt3.ts";
+import { getPropertiesService } from "../../utils/getPropertiesService.ts";
 
 /**
  * Create Text Completion with OpenAI GPT-3
@@ -39,7 +39,7 @@ const createCompletionByGpt3 = (
   }
 
   const OPENAI_API_KEY: string = getPropertiesService("OPENAI_API_KEY");
-  const response = httpRequestWithRetries(
+  const response = httpRequestWithRetriesForGpt3(
     OPENAI_API_KEY,
     prompt,
     model,

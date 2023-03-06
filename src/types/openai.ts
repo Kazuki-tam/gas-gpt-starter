@@ -1,7 +1,24 @@
 import { z } from "https://deno.land/x/zod@v3.20.2/mod.ts";
-import { GptFunctionSchema, GptModelSchema } from "../schemas/openaiSchema.ts";
+import {
+  ChatGptFunctionSchema,
+  ChatGptModelSchema,
+  ChatGptRoleSchema,
+  GptFunctionSchema,
+  GptModelSchema,
+} from "../schemas/openaiSchema.ts";
 
+type ChatGptModel = z.infer<typeof ChatGptModelSchema>;
 type GptModel = z.infer<typeof GptModelSchema>;
+
+type MessageItem = {
+  role: z.infer<typeof ChatGptRoleSchema>;
+  content: string;
+};
+
+type ChatGptRequestOptions = {
+  model: ChatGptModel;
+  messages: MessageItem[];
+};
 
 type GptRequestOptions = {
   model: GptModel;
@@ -22,7 +39,27 @@ type GptRequestOptions = {
   user?: string;
 };
 
+type ChatGptFunction = z.infer<typeof ChatGptFunctionSchema>;
 type GptFunction = z.infer<typeof GptFunctionSchema>;
+
+type ChatGptApiInfo = {
+  id: string;
+  object: string;
+  created: string;
+  model: string;
+  usage: {
+    prompt_tokens: number;
+    completion_tokens: number;
+    total_tokens: number;
+  };
+  choices: [
+    {
+      message: MessageItem;
+    },
+  ];
+  finish_reason: string;
+  index: number;
+};
 
 type GptApiInfo = {
   id: string;
@@ -43,4 +80,13 @@ type GptApiInfo = {
   };
 };
 
-export type { GptApiInfo, GptFunction, GptModel, GptRequestOptions };
+export type {
+  ChatGptApiInfo,
+  ChatGptFunction,
+  ChatGptModel,
+  ChatGptRequestOptions,
+  GptApiInfo,
+  GptFunction,
+  GptModel,
+  GptRequestOptions,
+};
