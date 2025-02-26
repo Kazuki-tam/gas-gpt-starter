@@ -10,6 +10,7 @@ import { getPropertiesService } from "../../utils/getPropertiesService.ts";
  *
  * @param {string} prompt Prompt
  * @param {string} system System Role
+ * @param {string} model Model to use (defaults to gpt-4o-mini)
  * @param {number} maxTokens Max Tokens
  * @param {number} temperature Temperature
  * @return Response text returned by ChatGPT
@@ -17,6 +18,7 @@ import { getPropertiesService } from "../../utils/getPropertiesService.ts";
 const createCompletionByChatGpt = (
   prompt: string,
   system?: string,
+  model: string = "gpt-4o-mini",
 ) => {
   if (!prompt) {
     throw new Error("You have to input the prompt at the least.");
@@ -31,6 +33,7 @@ const createCompletionByChatGpt = (
     OPENAI_API_KEY,
     prompt,
     system,
+    model,
   );
   if (!response) {
     throw new Error("Error: Response error.");

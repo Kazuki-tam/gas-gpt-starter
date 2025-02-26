@@ -11,10 +11,12 @@ declare const global: {
 function CHATGPT(
   prompt: string,
   system?: string,
+  model: string = "gpt-4o-mini",
 ): string {
   const response = createCompletionByChatGpt(
     prompt,
     system,
+    model,
   );
   return response;
 }

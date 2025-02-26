@@ -4,6 +4,8 @@ import { sleepForBackoff } from "../../utils/sleepForBackoff.ts";
  * Execute HTTP requests and retry failed requests.
  * @param {string} OPENAI_API_KEY OpenAI API key
  * @param {string} prompt Prompt
+ * @param {string} model Model to use for the request
+ * @param {string} system System message
  * @return Response returned by ChatGPT
  */
 
@@ -11,6 +13,7 @@ const httpRequestWithRetriesForChatGpt = (
   OPENAI_API_KEY: string,
   prompt: string,
   system: string | undefined,
+  model: string = "gpt-4o-mini",
 ) => {
   const url = "https://api.openai.com/v1/chat/completions";
   const messageArray = [
@@ -29,7 +32,7 @@ const httpRequestWithRetriesForChatGpt = (
   }
 
   const payload = {
-    model: "gpt-3.5-turbo",
+    model: model,
     messages: messageArray,
   };
 

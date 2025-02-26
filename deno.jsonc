@@ -4,7 +4,7 @@
   "tasks": {
     "login": "deno run -A npm:@google/clasp@2.4.2 login",
     "open": "deno run -A npm:@google/clasp@2.4.2 open",
-    "push": "deno run --allow-env --allow-net --allow-read --allow-sys --allow-write npm:@google/clasp@2.4.2 push -f",
+    "push": "deno run --allow-env --allow-net --allow-read --allow-sys --allow-write --allow-ffi --allow-run _tasks/push.ts",
     "clean": "deno run --allow-write _tasks/clean.ts",
     "build": "deno run --allow-env --allow-net --allow-read --allow-run --allow-write _tasks/build.ts",
     "deploy": "deno task build && deno task push"
