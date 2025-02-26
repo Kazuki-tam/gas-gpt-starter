@@ -7,7 +7,8 @@
     "push": "deno run --allow-env --allow-net --allow-read --allow-sys --allow-write --allow-ffi --allow-run _tasks/push.ts",
     "clean": "deno run --allow-write _tasks/clean.ts",
     "build": "deno run --allow-env --allow-net --allow-read --allow-run --allow-write _tasks/build.ts",
-    "deploy": "deno task build && deno task push"
+    "deploy": "deno task build && deno task push",
+    "test": "deno test --allow-env --unstable-node-globals"
   },
   "lint": {
     "include": [
@@ -22,8 +23,8 @@
     ]
   },
   "test": {
-    "include": ["src/"],
-    "exclude": ["src/testdata/"]
+    "include": ["src/tests/"],
+    "exclude": []
   },
   "compilerOptions": {
     "types": [

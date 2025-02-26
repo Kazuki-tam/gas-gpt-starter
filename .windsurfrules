@@ -1,0 +1,110 @@
+# gas-gpt-starter Project Specification
+
+## Project Overview
+gas-gpt-starter is a starter kit for integrating OpenAI's GPT models with Google Apps Script. It allows users to use ChatGPT functionality directly within Google Workspace applications, particularly Google Sheets.
+
+## Core Features
+- Ready-to-deploy code for Google Apps Script without additional development
+- Local development environment with TypeScript, Clasp, and Deno
+- File bundling with esbuild
+- Custom CHATGPT() function for Google Sheets
+
+## Technical Architecture
+- Language: TypeScript
+- Runtime: Google Apps Script
+- Build System: Deno and esbuild
+- API Integration: OpenAI Chat Completions API
+- Deployment: Clasp
+
+## Main Components
+1. CHATGPT() function: A custom Google Sheets function that accepts:
+   - prompt: The text prompt to send to ChatGPT
+   - system: Optional system message to guide the AI's behavior
+   - model: Optional model selection (defaults to gpt-4o-mini)
+
+2. Supported Models:
+   - gpt-4o
+   - gpt-4o-mini
+   - o1
+   - o1-mini
+   - o3-mini
+   - gpt-3.5-turbo
+   - gpt-3.5-turbo-16k
+   - gpt-4
+   - gpt-4-turbo
+   - gpt-4-vision-preview
+   - gpt-4-32k
+
+3. Security:
+   - OpenAI API key stored in Google Apps Script properties
+   - No hardcoded credentials
+
+## Development Workflow
+1. Login to Google account using Clasp
+2. Connect to existing Google Apps Script project
+3. Set OpenAI API key in script properties
+4. Deploy code to Google Apps Script
+5. Use CHATGPT() function in Google Sheets
+
+## Requirements
+- Google Workspace account
+- OpenAI account with API access
+- Deno v1.29.4 or higher
+
+## Directory Structure and Design Rules
+
+### Directory Organization
+- `/src`: Contains all source code files
+  - `/openai`: OpenAI API integration code
+    - `/chatgpt`: ChatGPT-specific implementation
+  - `/schemas`: Zod schema definitions for validation
+  - `/types`: TypeScript type definitions
+  - `/utils`: Utility functions for common operations
+
+### Code Quality Guidelines
+1. **File Naming Conventions**:
+   - Use camelCase for file names (e.g., `createCompletionByChatGpt.ts`)
+   - Use descriptive names that indicate the file's purpose
+   - Group related functionality in dedicated directories
+
+2. **Code Organization**:
+   - Each file should have a single responsibility
+   - Export only what is necessary from each module
+   - Use explicit imports rather than wildcard imports
+
+3. **Type Safety**:
+   - Use TypeScript interfaces and types for all objects
+   - Validate external inputs with Zod schemas
+   - Avoid using `any` type when possible
+
+4. **Error Handling**:
+   - Implement proper error handling with descriptive messages
+   - Use retry mechanisms for API calls (as implemented in httpRequestWithRetriesForChatGpt)
+   - Log errors appropriately for debugging
+
+5. **Documentation**:
+   - Add JSDoc comments for all functions
+   - Include parameter descriptions and return types
+   - Document any non-obvious behavior or edge cases
+
+### Development Guidelines
+1. **Code Generation**:
+   - When generating new code, follow the existing project structure
+   - Place new API integrations in appropriate subdirectories
+   - Maintain consistent error handling patterns
+   - Ensure proper type definitions for all new code
+
+2. **Testing**:
+   - Test all new functionality in Google Apps Script environment
+   - Verify API responses are properly handled
+   - Check edge cases and error scenarios
+
+3. **Deployment**:
+   - Use `deno task build` to bundle files before deployment
+   - Use `deno task deploy` to push changes to Google Apps Script
+   - Test functionality in Google Sheets after deployment
+
+4. **Extending Functionality**:
+   - When adding new OpenAI models, update the ChatGptModelSchema
+   - When adding new functions, follow the pattern of existing functions
+   - Maintain backward compatibility when possible
