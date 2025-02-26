@@ -32,8 +32,8 @@ const ChatGptFunctionArgsSchema = z.tuple([
 const ChatGptFunctionSchema = z.function(ChatGptFunctionArgsSchema, z.string());
 
 export {
-  ChatGptSystemSchema,
   ChatGptFunctionSchema,
   ChatGptModelSchema,
   ChatGptRoleSchema,
+  ChatGptSystemSchema,
 };

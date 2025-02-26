@@ -1,7 +1,5 @@
 import type { ChatGptApiInfo } from "../../types/openai.ts";
-import {
-  ChatGptSystemSchema,
-} from "../../schemas/openaiSchema.ts";
+import { ChatGptSystemSchema } from "../../schemas/openaiSchema.ts";
 import { httpRequestWithRetriesForChatGpt } from "./httpRequestWithRetriesForChatGpt.ts";
 import { getPropertiesService } from "../../utils/getPropertiesService.ts";
 

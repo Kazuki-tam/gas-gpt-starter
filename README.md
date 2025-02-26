@@ -2,9 +2,12 @@
 
 `gas-gpt-starter` is a starter kit to use GPT models in Google Apps Script.
 
-You can clone [this sample sheet](https://docs.google.com/spreadsheets/d/1xYZbBp4TFuSxOfjsW0HJtDCS3UEI5nWYd2FfPxEoLnQ/edit?usp=sharing) if you want to use ChatGPT function immediately without deployment.
+You can clone
+[this sample sheet](https://docs.google.com/spreadsheets/d/1xYZbBp4TFuSxOfjsW0HJtDCS3UEI5nWYd2FfPxEoLnQ/edit?usp=sharing)
+if you want to use ChatGPT function immediately without deployment.
 
-Note: You need to set the OpenAI API key into script properties even though you cloned the sample sheet.
+Note: You need to set the OpenAI API key into script properties even though you
+cloned the sample sheet.
 
 [👉 Check out how to add script properties.](https://developers.google.com/apps-script/guides/properties#manage_script_properties_manually)
 
@@ -16,6 +19,7 @@ Note: You need to set the OpenAI API key into script properties even though you 
 ![Release date](https://img.shields.io/github/release-date/Kazuki-tam/gas-gpt-starter)
 
 ## Features
+
 - Just deploy this project code without development
 - Develop locally with TypeScript, Clasp and Deno
 - Bundle your files with esbuild
@@ -47,8 +51,8 @@ deno task login
 
 ### Connect to your existing project
 
-Create a `.clasp.json` at the root, and then add these settings.
-Open the app script from your spreadsheet and check out your script id on the setting page.
+Create a `.clasp.json` at the root, and then add these settings. Open the app
+script from your spreadsheet and check out your script id on the setting page.
 
 ```json
 {
@@ -58,7 +62,9 @@ Open the app script from your spreadsheet and check out your script id on the se
 ```
 
 ### Set OpenAI API key into script properties
-1. Create a new secret key from [OpenAI API keys](https://beta.openai.com/account/api-keys).
+
+1. Create a new secret key from
+   [OpenAI API keys](https://beta.openai.com/account/api-keys).
 2. Set the API key into script properties in your Apps Script project.
 
 Note: The key name is must be `OPENAI_API_KEY`.
@@ -76,10 +82,12 @@ deno task deploy
 ```
 
 ### CHATGPT function
+
 1. Authorize this project's script by execution
 2. Use `=CHATGPT()` in your Google Workspace
 
-You can add a system message with the second argument and specify a model with the third argument.
+You can add a system message with the second argument and specify a model with
+the third argument.
 
 ```
 CHATGPT(prompt, system, model)
@@ -104,9 +112,11 @@ CHATGPT(prompt, system, model)
 ```
 
 #### CHATGPT Parameters
+
 1. prompt: The prompt to generate completions.
 2. system: The system message to format response.
-3. model: (Optional) The model to use. Defaults to "gpt-4o-mini". Available models include:
+3. model: (Optional) The model to use. Defaults to "gpt-4o-mini". Available
+   models include:
    - gpt-4o
    - gpt-4o-mini
    - o1
@@ -136,4 +146,5 @@ deno task open
 ```
 
 ## License
+
 MIT

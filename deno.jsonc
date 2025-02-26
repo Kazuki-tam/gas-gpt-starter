@@ -10,26 +10,20 @@
     "deploy": "deno task build && deno task push"
   },
   "lint": {
-    "files": {
-      "include": [
-        "src",
-        "_tasks"
-      ]
-    }
+    "include": [
+      "src",
+      "_tasks"
+    ]
   },
   "fmt": {
-    "files": {
-      "include": [
-        "src",
-        "_tasks"
-      ]
-    }
+    "include": [
+      "src",
+      "_tasks"
+    ]
   },
   "test": {
-    "files": {
-      "include": ["src/"],
-      "exclude": ["src/testdata/"]
-    }
+    "include": ["src/"],
+    "exclude": ["src/testdata/"]
   },
   "compilerOptions": {
     "types": [
